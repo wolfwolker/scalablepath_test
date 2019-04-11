@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <table>
+                {% for product in products %}
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.price}}</td>
+                        <td><a href="{{ url("product_delete", {"id": product.id}) }}">Delete</a> </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
